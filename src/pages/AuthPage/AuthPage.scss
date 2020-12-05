@@ -1,0 +1,36 @@
+@import '../../shared/styles/inputs.scss';
+@import '../../shared/styles/variables.scss';
+
+.auth {
+  min-width: 300px;
+  max-width: 400px;
+  width: 80%;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .mb {
+    margin-bottom: 1rem;
+  }
+
+  button {
+    @include inputStyles();
+    background-color: $main-color;
+    color: #fff;
+    border: none;
+    transition: background 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($main-color, 20%);
+    }
+
+    &:disabled {
+      background-color: lighten($main-color, 20%);
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

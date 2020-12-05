@@ -1,0 +1,28 @@
+@import '../../shared/styles/inputs.scss';
+@import '../../shared/styles/variables.scss';
+
+.form-field {
+  position: relative;
+  input {
+    @include inputStyles();
+    border: 2px solid #c4c4c4;
+    transition: border 0.1s ease-in-out;
+
+    &:hover {
+      border-color: #000;
+    }
+    &:focus {
+      border-color: $main-color;
+    }
+    &.invalid {
+      border-color: $error-color;
+    }
+  }
+
+  .error {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    color: $error-color;
+  }
+}
