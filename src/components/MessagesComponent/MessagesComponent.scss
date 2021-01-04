@@ -1,0 +1,7 @@
+@import '../../shared/styles/mixins';
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  overflow: auto;
+}

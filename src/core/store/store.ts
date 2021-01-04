@@ -1,14 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { connectRouter } from 'connected-react-router';
+import { History } from 'history';
 import { authReducer, AuthState } from './reducers/auth.reducer';
+import { chatsReducer, ChatsState } from './reducers/chats.reducer';
+
 export type AppState = {
   auth: AuthState;
+  chats: ChatsState;
 };
 
-const reducer = {
+export const getReducer = (history: History) => ({
   auth: authReducer,
-};
-
-export const store = configureStore<AppState>({
-  reducer,
-  devTools: process.env.NODE_ENV !== 'production',
+  chats: chatsReducer,
+  router: connectRouter(history),
 });

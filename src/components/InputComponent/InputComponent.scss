@@ -1,10 +1,9 @@
-@import '../../shared/styles/inputs.scss';
-@import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins';
 
 .form-field {
   position: relative;
   input {
-    @include inputStyles();
+    @include authInput;
     border: 2px solid #c4c4c4;
     transition: border 0.1s ease-in-out;
 

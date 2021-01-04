@@ -1,0 +1,81 @@
+@import '../../shared/styles/mixins';
+.profile {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    h3 {
+      margin: auto;
+    }
+  }
+
+  &__logout {
+    justify-self: flex-start;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #6ec9cb;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  &__button-group {
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: space-between;
+
+    button {
+      width: 45%;
+    }
+  }
+
+  &__field {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      @include simpleInput;
+      width: 100%;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 8px 0;
+    outline: none;
+
+    &--cancel {
+      @include cancelButton;
+    }
+
+    &--save {
+      @include saveButton;
+    }
+
+    &--edit {
+      @include editButton;
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,10 +1,33 @@
-import { createAction } from '@reduxjs/toolkit';
-import { AuthInfo } from '../interfaces';
-import { ActionTypes } from './types';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { userLogin } from '../../services/userService';
+import { AuthInfo, User } from '../interfaces';
 
-const withPayloadType = <T>() => (t: T) => ({ payload: t });
+export enum AuthActionTypes {
+  LOGIN = 'LOGIN',
+  LOGOUT = 'LOGOUT',
+}
 
-export const loginActionCreator = createAction(
-  ActionTypes.LOGIN,
-  withPayloadType<AuthInfo>()
+export const login = createAsyncThunk(
+  AuthActionTypes.LOGIN,
+  async ({ email, password, loggedIn }: AuthInfo, { rejectWithValue }) => {
+    try {
+      let user: User;
+      if (loggedIn) {
+        user = await userLogin({ email, loggedIn });
+      } else {
+        user = await userLogin({ email, password });
+        window.localStorage.setItem('user', email);
+      }
+      return user;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const logoutActionCreator = createAsyncThunk(
+  AuthActionTypes.LOGOUT,
+  () => {
+    localStorage.removeItem('user');
+  }
 );

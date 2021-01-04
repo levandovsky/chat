@@ -1,0 +1,73 @@
+@import '../../shared/styles/mixins';
+
+.message {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    min-width: 50px;
+    max-width: 70%;
+    display: flex;
+    padding: 10px 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: $default-border-radius;
+    word-wrap: break-word;
+  }
+
+  &__user {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  &__timestamp {
+    font-size: 10px;
+    transition: color 0.2s ease-in-out;
+
+    &.hidden {
+      color: transparent;
+    }
+  }
+
+  &--receiver {
+    .message__timestamp {
+      text-align: right;
+    }
+
+    .message__inner {
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+      .message__user {
+        background-color: #6ec9cb;
+      }
+      .message__content {
+        background-color: #1a233b;
+        color: #fff;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &--sender &__inner {
+    .message__user {
+      background-color: #a695e7;
+    }
+
+    .message__content {
+      @include cardShadow;
+      background-color: $chat-input-field-color;
+      color: #1a233b;
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import './variables';
+
+@mixin authInput {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+@mixin cardShadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+@mixin simpleInput {
+  border-radius: $default-border-radius;
+  padding: 8px 10px;
+  width: 80%;
+  outline: none;
+  border: 1px solid $message-input-border-color;
+
+  &:hover {
+    border-color: darken($message-input-border-color, 20%);
+  }
+
+  &:focus {
+    border-color: darken($message-input-border-color, 20%);
+  }
+}
+
+@mixin styledButton($color, $text-color: #fff) {
+  background-color: $color;
+  color: $text-color;
+  border: 1px solid transparent;
+  transition: background 0.2s ease;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color, 20%);
+    color: #fff;
+  }
+
+  &:disabled {
+    background-color: lighten($color, 20%);
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+@mixin sendButton {
+  @include styledButton($main-color);
+}
+
+@mixin outlinedButton($color, $text-color) {
+  @include styledButton($color, $text-color) border: 1px solid $text-color;
+
+  &:hover {
+    border: 1px solid transparent;
+  }
+}
+
+@mixin editButton {
+  @include outlinedButton($edit-button-color, $edit-button-text-color);
+}
+
+@mixin saveButton {
+  @include styledButton($save-button-color);
+}
+
+@mixin cancelButton {
+  @include outlinedButton($cancel-button-color, $cancel-button-text-color);
+}

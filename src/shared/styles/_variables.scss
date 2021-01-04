@@ -1,0 +1,28 @@
+// colors
+$blue-1: #50a2e9;
+$blue-2: #f3f6fb;
+$blue-3: #f5f8fc;
+$blue-4: #1055fc;
+$blue-5: #d9e4fc;
+$green-1: #5cb85c;
+$red-1: #ff3333;
+$gray-1: #fefeff;
+$gray-2: #c4c4c4;
+$orange-1: #fff1e9;
+$orange-2: #ff5757;
+
+// component specific variables
+$main-color: $blue-1;
+$error-color: $red-1;
+$save-button-color: $green-1;
+$chatbox-bg-color: $blue-2;
+$active-conversation-bg-color: $blue-2;
+$profile-bg-color: $blue-3;
+$default-border-radius: 10px;
+$chat-input-field-color: $gray-1;
+$send-button-color: $blue-1;
+$message-input-border-color: $gray-2;
+$cancel-button-color: $orange-1;
+$cancel-button-text-color: $orange-2;
+$edit-button-color: $blue-5;
+$edit-button-text-color: $blue-4;
